@@ -33,7 +33,10 @@ BEGIN
 		
 		SET @start_time = GETDATE();
 		PRINT '>> Truncating Table: bronze.crm_cust_info';
-		TRUNCATE TABLE bronze.crm_cust_info;
+		TRUNCATE TABLE bronze.crm_cust_info; /* It basically deletes all rows from a table, resettting it
+			to an empty state, but leaving the header and then you insert whatever you want to insert into it
+			basically everytime you execute it, it deletes and reload in order to avoid duplicates rows anytime
+			you want to execute the bulk insert. That is what you call 'full load'*/
 
 		PRINT '>> Inserting Data Into: bronze.crm_cust_info';
 		BULK INSERT bronze.crm_cust_info
