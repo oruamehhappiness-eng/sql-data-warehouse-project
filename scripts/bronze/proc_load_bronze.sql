@@ -41,7 +41,7 @@ BEGIN
 		WITH (
 			FIRSTROW = 2,
 			FIELDTERMINATOR = ',',
-			TABLOCK
+			TABLOCK /*(LOCKING THE ENTIRE TABLE DURING LOADING IT)*/
 		);
 			SET @end_time = GETDATE();
 			PRINT '>>Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds'
