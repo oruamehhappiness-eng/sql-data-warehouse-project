@@ -10,7 +10,10 @@ Script Purpose:
 */
 
 IF OBJECT_ID ('bronze.crm_cust_info' , 'U') IS NOT NULL
-	DROP TABLE bronze.crm_cust_info; 
+/* Find the object ID of the 'U' = user TABLE called crm_cust_info inside the bronze schema."
+ 'IS NOT NULL' meaning if the database does find 'bronze.crm_cust_info' then you drop it*/
+	DROP TABLE bronze.crm_cust_info;
+
 CREATE TABLE bronze.crm_cust_info (
 	cst_id INT,
 	cst_key NVARCHAR(50),
